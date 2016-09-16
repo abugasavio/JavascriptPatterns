@@ -44,6 +44,10 @@ Cat.loadAll = function(){
     {
       "name":"cat02",
       "url":"images/cat02.jpg"
+    },
+    {
+      "name":"cat03",
+      "url":"images/cat03.jpg"
     }
   ])
 };
