@@ -1,6 +1,7 @@
 function Cat(slots){
   this.url = slots.url;
   this.name = slots.name;
+  this.clicks = 0;
 }
 
 Cat.instances = {};
@@ -14,7 +15,7 @@ Cat.updateInstances = function(json){
     console.log(c);
     Cat.instances[key] = c;
   }
-}
+};
 
 Cat.loadAll2 = function(){
   fetch('/data/data.json')
