@@ -1,5 +1,6 @@
 (function(){
   EVT.on("cat clicked", Cat.increaseClicks);
+  // TODO: Use promises here
 
   function clickCat(evt) {
     evt.preventDefault();
@@ -15,7 +16,6 @@
     var cat = Cat.instances[$evt];
     $clicks.html(cat.clicks + ' Clicks');
   }
-
 
 
   EVT.on("clicksIncreased", renderPage);
