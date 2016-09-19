@@ -12,8 +12,7 @@ Cat.updateInstances = function(json){
   for (var i = 0; i < keys.length; i++) {
     key = keys[i];
     var c = new Cat(json[key]);
-    console.log(c);
-    Cat.instances[key] = c;
+    Cat.instances[json[key].name] = c;
   }
 };
 
@@ -51,4 +50,12 @@ Cat.loadAll = function(){
       "url":"images/cat03.jpg"
     }
   ])
+};
+
+
+Cat.increaseClicks = function($catName){
+  var cat = Cat.instances[$catName];
+  cat.clicks++;
+  console.log(Cat.instances);
+  EVT.emit("clicksIncreased", $catName);
 };
