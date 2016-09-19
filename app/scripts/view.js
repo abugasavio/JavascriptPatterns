@@ -1,8 +1,7 @@
-(function(_, $){
+var view = (function(_, $){
   Cat.loadAll();
 
   var $gallery = $('[rel=gallery]');
-
 
   var keys = Object.keys(Cat.instances);
 
@@ -18,29 +17,6 @@
   for(var i=0; i < keys.length; i++) {
     $gallery.append(compiled(Cat.instances[keys[i]]));
   }
-
-  var $image = $('[rel=image]');
-
-  function clickCat(evt) {
-    evt.preventDefault();
-    evt.stopPropagation();
-    evt.stopImmediatePropagation();
-    var $catName = $(evt.target).attr('name');
-    EVT.emit("cat clicked", $catName);
-  }
-
-  function renderPage($evt){
-
-    var $query = $('[name="' + $evt +'"]');
-    var $clicks = $query.next();
-    var cat = Cat.instances[$evt];
-    $clicks.html(cat.clicks + ' Clicks');
-  }
-
-
-  $image.on("click", clickCat);
-  EVT.on("cat clicked", Cat.increaseClicks)
-  EVT.on("clicksIncreased", renderPage);
 
 
 })(_, $);

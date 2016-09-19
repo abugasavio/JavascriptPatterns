@@ -11,8 +11,7 @@ Cat.updateInstances = function(json){
   var keys = Object.keys(json);
   for (var i = 0; i < keys.length; i++) {
     key = keys[i];
-    var c = new Cat(json[key]);
-    Cat.instances[json[key].name] = c;
+    Cat.instances[json[key].name] = new Cat(json[key]);
   }
 };
 
