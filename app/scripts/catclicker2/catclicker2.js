@@ -53,7 +53,6 @@
     getCats: function () {
       return model.getAllCats();
     },
-
     catClicked: function(evt){
       var catName = $(evt.target).html();
       console.log(catName);
@@ -79,10 +78,8 @@
       var catThumbnailTemplate=_.template('<div class="thumbnail">\
         <img class="img-rounded no-resize" rel="catimage" id="catimage" data-src="holder.js/100%x200" alt="..." src=<%= cat.url %>>\
         <div class="caption">\
-        <h3><%= cat.name %></h3>\
-        <h2><%= cat.clicks %></h2>\
-        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>\
-       <p><a role="button" class="btn btn-primary" href="#">Button</a> <a role="button" class="btn btn-default" href="#">Button</a></p>\
+        <h4>Cat Name: <%= cat.name %></h4>\
+        <h4>Clicks: <%= cat.clicks %></h4>\
         </div>\
         </div>');
       $thumbnail.html('');
