@@ -1,0 +1,94 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JavascriptPatterns</title>
+
+  <link rel="apple-touch-icon" href="favicon/apple-icon-57x57.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <!-- build:css styles/vendor.css -->
+  <!-- bower:css -->
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:css styles/main.css -->
+  <link rel="stylesheet" href="/bower_components/flat-ui/bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild -->
+
+  <!--flat-ui -->
+  <link rel="stylesheet" href="/bower_components/flat-ui/dist/css/flat-ui.css">
+  <!---endflatui-->
+
+  <!-- build:js scripts/vendor/modernizr.js -->
+  <script src="/bower_components/modernizr/modernizr.js"></script>
+  <!-- endbuild -->
+</head>
+<body>
+<!--[if lt IE 10]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<div class="container">
+
+  <div class="header">
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
+          <span class="sr-only">Toggle navigation</span>
+        </button>
+        <a class="navbar-brand" href="#">Learning JS</a>
+      </div>
+      <div class="collapse navbar-collapse" id="navbar-collapse-01">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#fakelink">Products</a></li>
+          <li><a href="#fakelink">Features</a></li>
+        </ul>
+
+      </div><!-- /.navbar-collapse -->
+    </nav><!-- /navbar -->
+
+  </div>
+  <div class="row">
+    <div class="col-sm-6 col-md-4">
+      <ul class="list-group" id="catlist">
+
+      </ul>
+
+    </div>
+    <div class="col-sm-12 col-md-8" id="catThumbnail">
+      <div class="thumbnail">
+        <img rel="catimage" data-src="holder.js/100%x200" alt="..." src=<%= cat.url %>
+        <div class="caption">
+          <h3>Thumbnail label</h3>
+          <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+          <p><a role="button" class="btn btn-primary" href="#">Button</a> <a role="button" class="btn btn-default" href="#">Button</a></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>Savio Abuga</p>
+  </div>
+</div>
+<!-- build:js scripts/vendor.js -->
+<!-- bower:js -->
+<script src="/bower_components/jquery/dist/jquery.js"></script>
+<script src="scripts/lodash.js"></script>
+<!-- endbower -->
+
+<!--flat-ui -->
+<script src="/bower_components/flat-ui/dist/js/flat-ui.min.js"></script>
+<!---endflatui-->
+
+<!-- build:js scripts/view.js -->
+<script src="scripts/lodash.js"></script>
+<script src="scripts/catclicker2/catclicker2.js"></script>
+<!-- endbuild -->
+</body>
+</html>
