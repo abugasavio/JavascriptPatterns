@@ -17,6 +17,10 @@ body {
   padding-bottom: 20px;
 }
 
+.container {
+    width: 970px !important;
+}
+
 /* Everything but the jumbotron gets side spacing for mobile first views */
 
 
@@ -38,5 +42,5 @@ body {
 
 img.no-resize {
   max-height: 400px;
-  min-width: 738px;
+  min-width: 604px;
 }
