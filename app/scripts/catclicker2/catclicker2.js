@@ -60,9 +60,9 @@
       var $thumbnail = $('#catThumbnail');
 
       var catThumbnailTemplate=_.template('<div class="thumbnail">\
-        <img rel="catimage" data-src="holder.js/100%x200" alt="..." src=<%= cat.url %>>\
+        <img class="img-rounded no-resize" rel="catimage" id="catimage" data-src="holder.js/100%x200" alt="..." src=<%= cat.url %>>\
         <div class="caption">\
-        <h3>Thumbnail label</h3>\
+        <h3><%= cat.name %></h3>\
         <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>\
        <p><a role="button" class="btn btn-primary" href="#">Button</a> <a role="button" class="btn btn-default" href="#">Button</a></p>\
         </div>\

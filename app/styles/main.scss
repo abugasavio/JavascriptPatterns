@@ -35,3 +35,8 @@ body {
     padding: 14px 24px;
   }
 }
+
+img.no-resize {
+  max-height: 400px;
+  min-width: 738px;
+}
