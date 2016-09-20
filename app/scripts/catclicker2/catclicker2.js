@@ -25,6 +25,10 @@
         return catObj.name === catName;
       })
     },
+    incrementClicks: function(catName){
+      var catObj = this.getCat(catName);
+      // TODO: incrementing clicks ...
+    }
 
   };
 
