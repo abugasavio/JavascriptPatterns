@@ -32,8 +32,9 @@
 
     init: function(){
       model.init();
-      console.log(model.getAllCats());
-      view.init();
+      adminPanelView.init();
+      listView.init();
+      thumbnailView.init();
     },
 
     getCats: function () {
@@ -42,41 +43,18 @@
 
     catClicked: function(evt){
       var catName = $(evt.target).html();
-      view.updateCatThumbnail(model.getCat(catName)[0]);
+      thumbnailView.updateCatThumbnail(model.getCat(catName)[0]);
+    },
+    getFirstCat: function() {
+      return model.getAllCats()[0];
     }
 
   };
 
-  var view = {
 
-    init: function() {
-      this.buildList();
-      this.initAdminPanel();
-    },
-
-    buildList: function(){
-      var $catlist = $('#catlist');
-      var catlistTemplate = _.template('<li ref="catlistLi" class="list-group-item" name=<%= cat.name%>><a href="#"><%= cat.name%></a></li>');
-      var cats = octopus.getCats();
-      for(var i = 0; i < cats.length; i++) {
-        $catlist.append(catlistTemplate({cat: cats[i]}));
-      }
-      var $catListLinks = $('[ref=catlistLi] > a');
-      $catListLinks.on('click', octopus.catClicked);
-    },
-    initAdminPanel: function(){
-      var $adminForm = $('[ref=admin-form]');
-      var $adminButton = $('[ref=admin-button]');
-      var $adminButtonCancel = $('[ref=admin-button-cancel]');
-      $adminForm.hide();
-      $adminButton.on('click', function(evt){
-        evt.preventDefault();
-        $adminForm.show();
-      });
-      $adminButtonCancel.on('click', function(evt){
-        evt.preventDefault();
-        $adminForm.hide();
-      });
+  var thumbnailView = {
+    init: function(){
+      this.updateCatThumbnail(octopus.getFirstCat());
     },
     updateCatThumbnail: function(catObj){
       var $thumbnail = $('#catThumbnail');
@@ -90,6 +68,37 @@
         </div>');
       $thumbnail.html('');
       $thumbnail.append(catThumbnailTemplate({cat:catObj}))
+    }
+
+  };
+
+  var adminPanelView = {
+    init: function() {
+      var $adminForm = $('[ref=admin-form]');
+      var $adminButton = $('[ref=admin-button]');
+      var $adminButtonCancel = $('[ref=admin-button-cancel]');
+      $adminForm.hide();
+      $adminButton.on('click', function(evt){
+        evt.preventDefault();
+        $adminForm.show();
+      });
+      $adminButtonCancel.on('click', function(evt){
+        evt.preventDefault();
+        $adminForm.hide();
+      });
+    }
+  };
+
+  var listView = {
+    init: function(){
+      var $catlist = $('#catlist');
+      var catlistTemplate = _.template('<li ref="catlistLi" class="list-group-item" name=<%= cat.name%>><a href="#"><%= cat.name%></a></li>');
+      var cats = octopus.getCats();
+      for(var i = 0; i < cats.length; i++) {
+        $catlist.append(catlistTemplate({cat: cats[i]}));
+      }
+      var $catListLinks = $('[ref=catlistLi] > a');
+      $catListLinks.on('click', octopus.catClicked);
     }
   };
 
