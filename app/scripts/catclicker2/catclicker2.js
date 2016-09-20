@@ -50,7 +50,8 @@
   var view = {
 
     init: function() {
-      view.buildList();
+      this.buildList();
+      this.initAdminPanel();
     },
 
     buildList: function(){
@@ -63,7 +64,20 @@
       var $catListLinks = $('[ref=catlistLi] > a');
       $catListLinks.on('click', octopus.catClicked);
     },
-
+    initAdminPanel: function(){
+      var $adminForm = $('[ref=admin-form]');
+      var $adminButton = $('[ref=admin-button]');
+      var $adminButtonCancel = $('[ref=admin-button-cancel]');
+      $adminForm.hide();
+      $adminButton.on('click', function(evt){
+        evt.preventDefault();
+        $adminForm.show();
+      });
+      $adminButtonCancel.on('click', function(evt){
+        evt.preventDefault();
+        $adminForm.hide();
+      });
+    },
     updateCatThumbnail: function(catObj){
       var $thumbnail = $('#catThumbnail');
       var catThumbnailTemplate=_.template('<div class="thumbnail">\
@@ -74,7 +88,6 @@
        <p><a role="button" class="btn btn-primary" href="#">Button</a> <a role="button" class="btn btn-default" href="#">Button</a></p>\
         </div>\
         </div>');
-
       $thumbnail.html('');
       $thumbnail.append(catThumbnailTemplate({cat:catObj}))
     }
