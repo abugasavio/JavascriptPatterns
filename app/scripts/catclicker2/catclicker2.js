@@ -24,6 +24,19 @@
 
     getCat: function(catName){
       return this.getAllCats()[catName];
+    },
+    incrementClicks: function(catName){
+      var catsObj = this.getAllCats();
+      var keys = Object.keys(catsObj);
+      for(var i =0; i < keys.length; i++){
+        var name = keys[i];
+        if (name === catName) {
+          catsObj[name].clicks++;
+          break;
+        }
+      }
+      console.log(catsObj);
+      localStorage.setItem('cats', JSON.stringify(catsObj));
     }
 
   };
@@ -44,6 +57,7 @@
     catClicked: function(evt){
       var catName = $(evt.target).html();
       console.log(catName);
+      model.incrementClicks(catName);
       thumbnailView.updateCatThumbnail(model.getCat(catName));
     },
     getFirstCat: function() {
